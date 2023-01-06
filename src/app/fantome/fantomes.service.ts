@@ -8,14 +8,14 @@ import { Fantomes } from './fantomes';
 })
 export class FantomesService {
 
-  private url = 'http://localhost:5200';
+  private url = 'http://localhost:8080';
 
   private fantomes$: Subject<Fantomes[]> = new Subject();
 
   constructor(private httpClient: HttpClient) { }
 
   private refreshFantomes() {
-    this.httpClient.get<Fantomes[]>(`${this.url}/fantomes`)
+    this.httpClient.get<Fantomes[]>(`${this.url}/`)
       .subscribe(fantomes => {
         this.fantomes$.next(fantomes);
       });
