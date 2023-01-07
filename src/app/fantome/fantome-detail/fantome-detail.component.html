@@ -1,26 +1,21 @@
 <div *ngIf="fantome">
 
-    <div class="card mt-5 mx-auto" style="max-width: 540px; background-color: #f7f5ec;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img *ngIf="fantome.role == 'Espions'" class="img-fluid fantome-image" src="/assets/images/espion.png">
-                <img *ngIf="fantome.role == 'Alchimiste'" class="img-fluid fantome-image" src="/assets/images/alchimiste.png">
-                <img *ngIf="fantome.role == 'Sorcier'" class="img-fluid fantome-image" src="/assets/images/sorcier.png">
-                <img *ngIf="fantome.role == 'Enchanteur'" class="img-fluid fantome-image" src="/assets/images/enchanteur.png">
-                <img *ngIf="fantome.role == 'Guerrier'" class="img-fluid fantome-image" src="/assets/images/guerrier.png">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
+    <div class="box-wrapper col-3 mx-auto">
+        <div class="shape-box shape-box_half">
+            <img *ngIf="fantome.role == 'Espions'" src="/assets/images/espion.png">
+            <img *ngIf="fantome.role == 'Alchimiste'" src="/assets/images/alchimiste.png">
+            <img *ngIf="fantome.role == 'Sorcier'" src="/assets/images/sorcier.png">
+            <img *ngIf="fantome.role == 'Enchanteur'" src="/assets/images/enchanteur.png">
+            <img *ngIf="fantome.role == 'Guerrier'" src="/assets/images/guerrier.png">
+            <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+            <figcaption>
+                <div class="show-cont">
+                    <h3 class="card-no">{{ fantome.username }}</h3>
+                    <h4 class="card-main-title">{{ fantome.role }}</h4>
+                </div>
+                <div class="card-content">
                     <table class="table table-striped">
                         <tbody>
-                            <tr>
-                                <td>Nom</td>
-                                <td>{{ fantome.username }}</td>    
-                            </tr>
-                            <tr>
-                                <td>Classe</td>
-                                <td>{{ fantome.role }}</td>
-                            </tr>
                             <tr>
                                 <td>Points de vie</td>
                                 <td *ngIf="fantome.role == 'Sorcier'">15</td>
@@ -29,16 +24,22 @@
                                 <td>Dégâts</td>
                                 <td *ngIf="fantome.role == 'Sorcier'">55</td>
                             </tr>
-                        </tbody>   
+                            <tr>
+                                <td>Point forts</td>
+                                <td *ngIf="fantome.role == 'Sorcier'">Boom boom</td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <div class="col-5">
-                        <a href="/login" *ngIf="currentUser.id == null" routerLink="login" class="btn btn-primary text-end">Ajouter en ami</a>
-                        <button *ngIf="isFriend" (click)="update()" disabled class="btn btn-primary text-end">Ajouter en ami</button>
-                        <button *ngIf="isFriend === false && currentUser.id !== undefined" (click)="update()" class="btn btn-primary text-end">Ajouter en ami</button>
-                    </div>
                 </div>
-            </div>
+                <a href="/login" *ngIf="currentUser.id == null" routerLink="login" class="add-friend-btn text-end">Ajouter
+                    en ami</a>
+                <button *ngIf="isFriend" (click)="update()" disabled class="add-friend-btn text-end">Déjà ami</button>
+                <button *ngIf="isFriend === false && currentUser.id !== undefined" (click)="update()"
+                    class="add-friend-btn text-end">Ajouter en ami</button>
+            </figcaption>
+            <span class="after"></span>
         </div>
     </div>
 
 </div>
+

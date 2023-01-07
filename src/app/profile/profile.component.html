@@ -54,7 +54,7 @@
 <h2 class="text-center mt-4">Vos amis!</h2>
 
 <div *ngIf="friendArray">
-  <div *ngFor="let friend of friendArray.friends" class="card mt-3 mx-auto" style="max-width: 540px; background-color: #f7f5ec;">
+  <div *ngFor="let friend of friendArray.friends" class="card my-3 mx-auto" style="max-width: 540px; background-color: #f7f5ec;">
     <div class="row g-0">
         <div class="col-md-4">
             <img *ngIf="friend.role == 'Espions'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/espion.png">

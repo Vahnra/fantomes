@@ -18,12 +18,12 @@
                 <h3 class="name">{{ fantome.username }}</h3>
                 <h4 class="title">{{ fantome.role }}</h4>
             </div>
-            <ul class="social">
-                <li *ngIf="fantome.role == 'Sorcier'" class="text-white">Parfaitement équilibré.</li>
-                <li *ngIf="fantome.role == 'Alchimiste'" class="text-white">Ça n'a aucun sens.</li>
-                <li *ngIf="fantome.role == 'Guerrier'" class="text-white">Cela ne semble pas juste.</li>
-                <li *ngIf="fantome.role == 'Espions'" class="text-white">A dans une minute.</li>
-                <li *ngIf="fantome.role == 'Enchanteur'" class="text-white">J'aurai juré que je l'avais mis là dedans.</li>
+            <ul class="citation">
+                <li *ngIf="fantome.role == 'Sorcier'" class="text-white mb-1">Parfaitement équilibré.</li>
+                <li *ngIf="fantome.role == 'Alchimiste'" class="text-white mb-1">Ça n'a aucun sens.</li>
+                <li *ngIf="fantome.role == 'Guerrier'" class="text-white mb-1">Cela ne semble pas juste.</li>
+                <li *ngIf="fantome.role == 'Espions'" class="text-white mb-1">A dans une minute.</li>
+                <li *ngIf="fantome.role == 'Enchanteur'" class="text-white mb-1">J'aurai juré que je l'avais mis là dedans.</li>
             </ul>
         </div>
 

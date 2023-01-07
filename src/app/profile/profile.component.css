@@ -1,0 +1,54 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    transition: 0.7s;
+}
+
+.card:hover {
+    box-shadow: 0 10px 13px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.7s;
+}
+
+/* Animations */
+
+@keyframes slideup {
+    from {
+        height: 250px;
+    }
+
+    to {
+        height: 150px;
+    }
+}
+
+@keyframes slidedown {
+    from {
+        height: 150px;
+    }
+
+    to {
+        height: 250px;
+    }
+}
+
+@keyframes textIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes textOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
