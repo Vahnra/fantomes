@@ -3,7 +3,7 @@
 
 <div class="row">
 
-    <form *ngFor="let fantome of fantomes$ | async" class="card mx-2 mx-auto" style="width: 18rem;">
+    <div (click)="goToFantome(fantome)" *ngFor="let fantome of fantomes$ | async" class="card mx-2 mx-auto" style="width: 18rem;">
         <img *ngIf="fantome.role == 'Alchimiste'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
         <img *ngIf="fantome.role == 'Guerrier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
         <img *ngIf="fantome.role == 'Sorcier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
@@ -12,8 +12,8 @@
         <div class="card-body">
             <h5 class="card-title">{{fantome.username}}</h5>
             <p class="card-text">{{fantome.role}}</p>
-            <button class="btn btn-primary">Ajouter en ami</button>
+            <button  class="btn btn-primary">Ajouter en ami</button>
         </div>
-    </form>
+    </div>
 
 </div>

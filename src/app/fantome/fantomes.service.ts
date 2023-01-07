@@ -27,11 +27,15 @@ export class FantomesService {
   }
 
   getFantome(id: string): Observable<Fantomes> {
-    return this.httpClient.get<Fantomes>(`${this.url}/${id}`);
+    return this.httpClient.get<Fantomes>(`${this.url}/detail/${id}`);
   }
 
   update(id: any, data: any): Observable<any> {
     return this.httpClient.put(`${this.url}/${id}`, data);
+  }
+
+  addFriend(id: any, data: any): Observable<any> {
+    return this.httpClient.put(`${this.url}/add/${id}`, data);
   }
   
 

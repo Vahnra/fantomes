@@ -1,0 +1,59 @@
+<div *ngIf="fantome">
+
+    <div class="card mt-3 mx-auto" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img *ngIf="fantome.role == 'Alchimiste'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+                <img *ngIf="fantome.role == 'Guerrier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+                <img *ngIf="fantome.role == 'Sorcier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+                <img *ngIf="fantome.role == 'Espions'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+                <img *ngIf="fantome.role == 'Enchanteur'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Nom
+                                </td>
+                                <td>
+                                    {{ fantome.username }}
+                                </td>
+                            
+                            </tr>
+                            <tr>
+                                <td>
+                                    Classe
+                                </td>
+                                <td>
+                                    {{ fantome.role }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Points de vie
+                                </td>
+                                <td *ngIf="fantome.role == 'Sorcier'">
+                                    15
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Dégâts
+                                </td>
+                                <td *ngIf="fantome.role == 'Sorcier'">
+                                    55
+                                </td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                    <div class="col-5">
+                        <button (click)="update()" class="btn btn-primary text-end">Ajouter en amis</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

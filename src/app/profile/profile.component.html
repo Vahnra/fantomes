@@ -47,3 +47,6 @@
         <button class="btn btn-primary btn-block">Modifier</button>
     </div>
 </form>
+<div *ngIf="myArray">
+  <div *ngFor="let friend of myArray.friends">{{ friend.username }} {{ friend.role }}</div>
+</div>

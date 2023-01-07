@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Fantomes } from '../fantomes';
 import { FantomesService } from '../fantomes.service';
@@ -16,7 +17,7 @@ export class FantomesListComponent implements OnInit{
     fantome: null,
   };
 
-  constructor(private fantomesService: FantomesService) { }
+  constructor(private fantomesService: FantomesService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchFantomes();
@@ -26,4 +27,7 @@ export class FantomesListComponent implements OnInit{
     this.fantomes$ = this.fantomesService.getFantomes();
   }
 
+  goToFantome(fantome: Fantomes) {
+    this.router.navigate(['/fantomes', fantome._id])
+  }
 }

@@ -11,20 +11,25 @@ import { StorageService } from '../_services/storage.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
+  currentFantome: Fantomes|undefined;
   fantome$: Observable<Fantomes> = new Observable();
-  role: string = '';
+  role: String|undefined;
   form: any = {
     username: null,
     role: null,
   };
+  myArray: any = '';
 
   constructor(private storageService: StorageService, private fantomesService: FantomesService) {
-    
-   }
+
+  }
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    this.form.role = this.currentUser.role
+    this.fantomesService.getFantome(this.currentUser.id).subscribe(fantome => {this.currentFantome = fantome; this.myArray = fantome;
+    });
+    this.form.role = this.currentUser.role;   
+    
   }
 
   update(): void {
