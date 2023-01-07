@@ -3,17 +3,30 @@
 
 <div class="row">
 
-    <div (click)="goToFantome(fantome)" *ngFor="let fantome of fantomes$ | async" class="card mx-2 mx-auto" style="width: 18rem;">
-        <img *ngIf="fantome.role == 'Alchimiste'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
-        <img *ngIf="fantome.role == 'Guerrier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
-        <img *ngIf="fantome.role == 'Sorcier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
-        <img *ngIf="fantome.role == 'Espions'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
-        <img *ngIf="fantome.role == 'Enchanteur'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
-        <div class="card-body">
-            <h5 class="card-title">{{fantome.username}}</h5>
-            <p class="card-text">{{fantome.role}}</p>
-            <button  class="btn btn-primary">Ajouter en ami</button>
+    <div (click)="goToFantome(fantome)" *ngFor="let fantome of fantomes$ | async" class="mx-2 mx-auto fantome-card"
+        style="width: 18rem;">
+
+        <div class="our-team">
+            <div class="picture">
+                <img *ngIf="fantome.role == 'Espions'" class="img-fluid" src="/assets/images/espion.png">
+                <img *ngIf="fantome.role == 'Alchimiste'" class="img-fluid" src="/assets/images/alchimiste.png">
+                <img *ngIf="fantome.role == 'Sorcier'" class="img-fluid" src="/assets/images/sorcier.png">
+                <img *ngIf="fantome.role == 'Enchanteur'" class="img-fluid" src="/assets/images/enchanteur.png">
+                <img *ngIf="fantome.role == 'Guerrier'" class="img-fluid" src="/assets/images/guerrier.png">
+            </div>
+            <div class="team-content">
+                <h3 class="name">{{ fantome.username }}</h3>
+                <h4 class="title">{{ fantome.role }}</h4>
+            </div>
+            <ul class="social">
+                <li *ngIf="fantome.role == 'Sorcier'" class="text-white">Parfaitement équilibré.</li>
+                <li *ngIf="fantome.role == 'Alchimiste'" class="text-white">Ça n'a aucun sens.</li>
+                <li *ngIf="fantome.role == 'Guerrier'" class="text-white">Cela ne semble pas juste.</li>
+                <li *ngIf="fantome.role == 'Espions'" class="text-white">A dans une minute.</li>
+                <li *ngIf="fantome.role == 'Enchanteur'" class="text-white">J'aurai juré que je l'avais mis là dedans.</li>
+            </ul>
         </div>
+
     </div>
 
 </div>

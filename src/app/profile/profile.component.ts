@@ -11,14 +11,14 @@ import { StorageService } from '../_services/storage.service';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
-  currentFantome: Fantomes|undefined;
+  currentFantome: Fantomes | undefined;
   fantome$: Observable<Fantomes> = new Observable();
-  role: String|undefined;
+  role: String | undefined;
   form: any = {
     username: null,
     role: null,
   };
-  myArray: any = '';
+  friendArray: any = '';
 
   constructor(private storageService: StorageService, private fantomesService: FantomesService) {
 
@@ -26,10 +26,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
-    this.fantomesService.getFantome(this.currentUser.id).subscribe(fantome => {this.currentFantome = fantome; this.myArray = fantome;
+    this.fantomesService.getFantome(this.currentUser.id).subscribe(fantome => {
+      this.currentFantome = fantome; 
+      this.friendArray = fantome;
     });
-    this.form.role = this.currentUser.role;   
-    
+    this.form.role = this.currentUser.role;
   }
 
   update(): void {
@@ -39,9 +40,20 @@ export class ProfileComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.role = res.message ? res.message : 'This tutorial was updated successfully!';
+          this.role = res.message ? res.message : 'Update successfull!';
         },
         error: (e) => console.error(e)
+      });
+  }
+
+  deleteFriend():void {
+    this.fantomesService.deleteFriend(this.currentUser.id, this.form)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          window.location.reload()
+        },
+        error: (e) => console.error(e),
       });
   }
 }

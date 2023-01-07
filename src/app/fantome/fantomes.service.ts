@@ -37,6 +37,10 @@ export class FantomesService {
   addFriend(id: any, data: any): Observable<any> {
     return this.httpClient.put(`${this.url}/add/${id}`, data);
   }
-  
+
+  deleteFriend(id: any, data: any): Observable<any> {
+    return this.httpClient.put(`${this.url}/delete/${id}`, data);
+  }
+
 
 }

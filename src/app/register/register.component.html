@@ -1,8 +1,8 @@
-<div class="col-md-4 mx-auto">
-    <div class="card card-container">
+<div class="col-md-3 mt-5 mx-auto">
+    <div class="card border-0 card-container">
       <img
         id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        src="assets/images/register.png"
         class="profile-img-card"
       />
       <form
@@ -12,8 +12,8 @@
         #f="ngForm"
         novalidate
       >
-        <div class="form-group">
-          <label for="username">Username</label>
+        <div class="form-group mt-1">
+          <label class="my-2" for="username">Votre nom</label>
           <input
             type="text"
             class="form-control"
@@ -26,17 +26,17 @@
             [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
           />
           <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors['required']">Username is required</div>
+            <div *ngIf="username.errors['required']">Vous devez avoir un nom</div>
             <div *ngIf="username.errors['minlength']">
-              Username must be at least 3 characters
+              Votre nom est trop court !
             </div>
             <div *ngIf="username.errors['maxlength']">
-              Username must be at most 20 characters
+              Votre nom est trop long !
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="role">Role</label>
+          <label class="my-2" for="role">Votre classe</label>
           <select
             class="form-control"
             name="role"
@@ -52,11 +52,11 @@
             <option value="Enchanteur">Enchanteur</option>
           </select>
           <div class="invalid-feedback" *ngIf="role.errors && f.submitted">
-            <div *ngIf="role.errors['required']">Role is required</div>
+            <div *ngIf="role.errors['required']">Vous n'avez pas de classe ?</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label class="my-2" for="email">E-mail</label>
           <input
             type="email"
             class="form-control"
@@ -68,14 +68,14 @@
             [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
           />
           <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors['required']">Email is required</div>
+            <div *ngIf="email.errors['required']">Il nous faut votre e-mail</div>
             <div *ngIf="email.errors['email']">
-              Email must be a valid email address
+              L'e-mail n'est pas valide
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label class="my-2" for="password">Le mot de passe</label>
           <input
             type="password"
             class="form-control"
@@ -89,12 +89,12 @@
           <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
             <div *ngIf="password.errors['required']">Password is required</div>
             <div *ngIf="password.errors['minlength']">
-              Password must be at least 6 characters
+              Le mots de passe doit avoir au moins 6 caractères
             </div>
           </div>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block">Sign Up</button>
+          <button class="btn btn-primary btn-block my-3">C'est parti !</button>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
