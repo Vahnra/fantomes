@@ -13,6 +13,7 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { FormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
+import { FantomeModule } from './fantome/fantome.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { httpInterceptorProviders } from './_helpers/http.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FantomeModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

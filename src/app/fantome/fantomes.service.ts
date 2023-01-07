@@ -8,7 +8,7 @@ import { Fantomes } from './fantomes';
 })
 export class FantomesService {
 
-  private url = 'http://localhost:8080';
+  private url = 'http://localhost:8080/user';
 
   private fantomes$: Subject<Fantomes[]> = new Subject();
 
@@ -27,19 +27,12 @@ export class FantomesService {
   }
 
   getFantome(id: string): Observable<Fantomes> {
-    return this.httpClient.get<Fantomes>(`${this.url}/fantomes/${id}`);
+    return this.httpClient.get<Fantomes>(`${this.url}/${id}`);
   }
 
-  createFantome(fantome: Fantomes): Observable<string> {
-    return this.httpClient.post(`${this.url}/fantomes`, fantome, { responseType: 'text' });
+  update(id: any, data: any): Observable<any> {
+    return this.httpClient.put(`${this.url}/${id}`, data);
   }
   
-  updateFantome(id: string, fantome: Fantomes): Observable<string> {
-    return this.httpClient.put(`${this.url}/fantomes/${id}`, fantome, { responseType: 'text' });
-  }
-  
-  deleteFantome(id: string): Observable<string> {
-    return this.httpClient.delete(`${this.url}/fantomes/${id}`, { responseType: 'text' });
-  }
 
 }

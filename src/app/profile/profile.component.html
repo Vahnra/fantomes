@@ -1,1 +1,49 @@
-<p>profile works!</p>
+<h2 class="text-center my-4">Vous-même!</h2>
+
+<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && update()" class="card mx-2 mx-auto"  style="width: 18rem;">
+    <img *ngIf="currentUser.role == 'Alchimiste'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="...">
+    <img *ngIf="currentUser.role == 'Guerrier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <label for="username">Votre nom</label>
+          <input
+            type="text"
+            class="form-control my-2"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            minlength="3"
+            maxlength="20"
+            #username="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+            <div *ngIf="username.errors['required']">Username is required</div>
+            <div *ngIf="username.errors['minlength']">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors['maxlength']">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        
+          <label for="role">Role</label>
+          <select
+            class="form-control my-2"
+            name="role"
+            [(ngModel)]="form.role"
+            required
+            #role="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && role.errors }"
+          >
+            <option value="Guerrier" >Guerrier</option>
+            <option value="Alchimiste">Alchimiste</option>
+            <option value="Sorcier">Sorcier</option>
+            <option value="Espions">Espions</option>
+            <option value="Enchanteur">Enchanteur</option>
+          </select>
+          <div class="invalid-feedback" *ngIf="role.errors && f.submitted">
+            <div *ngIf="role.errors['required']">Role is required</div>
+          </div>
+        <button class="btn btn-primary btn-block">Modifier</button>
+    </div>
+</form>

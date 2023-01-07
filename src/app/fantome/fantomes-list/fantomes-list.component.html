@@ -1,22 +1,19 @@
-<h2 class="text-center m-5">Fantomes List</h2>
- 
-   <table class="table table-striped table-bordered">
-       <thead>
-           <tr>
-               <th>Name</th>
-               <th>Position</th>
-               <th>Level</th>
-               <th>Action</th>
-           </tr>
-       </thead>
- 
-       <tbody>
-           <!-- <tr *ngFor="let fantome of fantomes$ | async">
-               <td>{{fantome.name}}</td>
-               <td>{{fantome.position}}</td>
-               <td>
-                   <button class="btn btn-danger" (click)="deleteFantome(fantome._id || '')">Delete</button>
-               </td>
-           </tr> -->
-       </tbody>
-   </table>
+<h2 class="text-center m-5">Liste des fantomes</h2>
+
+
+<div class="row">
+
+    <form *ngFor="let fantome of fantomes$ | async" class="card mx-2 mx-auto" style="width: 18rem;">
+        <img *ngIf="fantome.role == 'Alchimiste'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+        <img *ngIf="fantome.role == 'Guerrier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+        <img *ngIf="fantome.role == 'Sorcier'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+        <img *ngIf="fantome.role == 'Espions'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+        <img *ngIf="fantome.role == 'Enchanteur'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/090-ghost.svg/2000px-090-ghost.svg.png" class="card-img-top" alt="{{fantome.username}}">
+        <div class="card-body">
+            <h5 class="card-title">{{fantome.username}}</h5>
+            <p class="card-text">{{fantome.role}}</p>
+            <button class="btn btn-primary">Ajouter en ami</button>
+        </div>
+    </form>
+
+</div>

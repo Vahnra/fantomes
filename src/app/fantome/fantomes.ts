@@ -1,5 +1,5 @@
 export interface Fantomes {
-    name?: string;
-    position?: string;
-    _id?: string;
+    username: String,
+    role: String,
+    _id?: string
 }
