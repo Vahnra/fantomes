@@ -8,7 +8,7 @@ import { Fantomes } from './fantomes';
 })
 export class FantomesService {
 
-  private url = 'http://localhost:8080/user';
+  private url = 'https://server-fantomes.onrender.com/user';
 
   private fantomes$: Subject<Fantomes[]> = new Subject();
 
