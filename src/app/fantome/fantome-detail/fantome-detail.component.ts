@@ -27,7 +27,7 @@ export class FantomeDetailComponent implements OnInit {
     const fantomeId: string | null = this.route.snapshot.paramMap.get('id');
     this.currentUser = this.storageService.getUser();
     if (fantomeId) {
-      this.fantomesService.getFantome(fantomeId).subscribe(fantome => this.fantome = fantome);
+      this.fantomesService.getFantome(fantomeId).subscribe(fantome => this.fantome = fantome);   
       if (this.currentUser) {
         this.fantomesService.getFantome(fantomeId).subscribe(fantome => this.fantome = fantome);
         this.fantomesService.getFantome(this.currentUser.id).subscribe(fantome => {
@@ -42,7 +42,6 @@ export class FantomeDetailComponent implements OnInit {
         });
       }
     }
-
   }
 
   update(): void {
