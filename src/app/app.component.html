@@ -10,7 +10,7 @@
 
       <ul class="navbar-nav col-4" *ngIf="!isLoggedIn">
         <li class="nav-item">
-          <a href="/register" class="nav-link" routerLink="register">Rejoindre les autres</a>
+          <a href="/register" class="nav-link" routerLink="register">Rejoignez-nous</a>
         </li>
         <li class="nav-item">
           <a href="/login" class="nav-link" routerLink="login">Se connecter</a>
@@ -19,7 +19,7 @@
 
       <ul class="navbar-nav col-4" *ngIf="isLoggedIn">
         <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile">Votre antre</a>
+          <a href="/profile" class="nav-link" routerLink="profile">Chez vous</a>
         </li>
         <li class="nav-item">
           <a href class="nav-link" (click)="logout()">Se déconnecter</a>

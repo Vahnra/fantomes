@@ -44,7 +44,8 @@ export class FantomeDetailComponent implements OnInit {
     }
   }
 
-  update(): void {
+  // Function add friend
+  addFriend(): void {
 
     if (this.fantome) {
       this.form = {

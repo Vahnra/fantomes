@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { FantomeDetailComponent } from './fantome/fantome-detail/fantome-detail.component';
 import { FantomesListComponent } from './fantome/fantomes-list/fantomes-list.component';
 import { LoginComponent } from './login/login.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'fantomes', component: FantomesListComponent },
   { path: 'fantomes/:id', component: FantomeDetailComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent },
 ];
 

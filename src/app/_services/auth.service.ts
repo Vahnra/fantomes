@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const AUTH_API = 'https://server-fantomes.onrender.com/api/auth/';
+// const AUTH_API = 'http://localhost:8080/api/auth/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,8 +13,9 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
+  // Connexion
   login(username: string, password: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'signin',
@@ -25,6 +27,7 @@ export class AuthService {
     );
   }
 
+  // Inscription
   register(username: string, role: string, email: string, password: string): Observable<any> {
     return this.http.post(
       AUTH_API + 'signup',
@@ -38,8 +41,9 @@ export class AuthService {
     );
   }
 
+  // Deconnexion
   logout(): Observable<any> {
-    return this.http.post(AUTH_API + 'signout', { }, httpOptions);
+    return this.http.post(AUTH_API + 'signout', {}, httpOptions);
   }
 }
 

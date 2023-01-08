@@ -1,96 +1,96 @@
 <h2 class="text-center my-4">Vous-même!</h2>
 
-<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && update()" class="card mx-2 mx-auto"  style="width: 18rem;">
-    <img *ngIf="currentUser.role == 'Alchimiste'" src="/assets/images/alchimiste.png" class="card-img-top" alt="...">
-    <img *ngIf="currentUser.role == 'Guerrier'" src="/assets/images/guerrier.png" class="card-img-top" alt="...">
-    <img *ngIf="currentUser.role == 'Espions'" src="/assets/images/espion.png" class="card-img-top" alt="...">
-    <img *ngIf="currentUser.role == 'Sorcier'" src="/assets/images/sorcier.png" class="card-img-top" alt="...">
-    <img *ngIf="currentUser.role == 'Enchanteur'" src="/assets/images/enchanteur.png" class="card-img-top" alt="...">
-    <div class="card-body">
-        <label for="username">Votre nom</label>
-          <input
-            type="text"
-            class="form-control my-2"
-            name="username"
-            [(ngModel)]="form.username"
-            required
-            minlength="3"
-            maxlength="20"
-            #username="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
-          />
-          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors['required']">Username is required</div>
-            <div *ngIf="username.errors['minlength']">
-              Username must be at least 3 characters
-            </div>
-            <div *ngIf="username.errors['maxlength']">
-              Username must be at most 20 characters
-            </div>
-          </div>
-        
-          <label for="role">Role</label>
-          <select
-            class="form-control my-2"
-            name="role"
-            [(ngModel)]="form.role"
-            required
-            #role="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && role.errors }"
-          >
-            <option value="Guerrier" >Guerrier</option>
-            <option value="Alchimiste">Alchimiste</option>
-            <option value="Sorcier">Sorcier</option>
-            <option value="Espions">Espions</option>
-            <option value="Enchanteur">Enchanteur</option>
-          </select>
-          <div class="invalid-feedback" *ngIf="role.errors && f.submitted">
-            <div *ngIf="role.errors['required']">Role is required</div>
-          </div>
-        <button class="btn btn-primary btn-block">Modifier</button>
-    </div>
+<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && update()" class="card mx-2 mx-auto" style="width: 18rem;">
+	<img *ngIf="currentUser.role == 'Alchimiste'" src="/assets/images/alchimiste.png" class="card-img-top" alt="...">
+	<img *ngIf="currentUser.role == 'Guerrier'" src="/assets/images/guerrier.png" class="card-img-top" alt="...">
+	<img *ngIf="currentUser.role == 'Espions'" src="/assets/images/espion.png" class="card-img-top" alt="...">
+	<img *ngIf="currentUser.role == 'Sorcier'" src="/assets/images/sorcier.png" class="card-img-top" alt="...">
+	<img *ngIf="currentUser.role == 'Enchanteur'" src="/assets/images/enchanteur.png" class="card-img-top" alt="...">
+	<div class="card-body">
+		<label for="username">Votre nom</label>
+		<input type="text" class="form-control my-2" name="username" [(ngModel)]="form.username" required minlength="3"
+			maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+		<div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+			<div *ngIf="username.errors['required']">Username is required</div>
+			<div *ngIf="username.errors['minlength']">
+				Le nom doit au moins avoir 3 caractères.
+			</div>
+			<div *ngIf="username.errors['maxlength']">
+				Le nom doit au maximum avoir 20 caractères.
+			</div>
+		</div>
+
+		<label for="role">Rôle</label>
+		<select class="form-control my-2" name="role" [(ngModel)]="form.role" required #role="ngModel"
+			[ngClass]="{ 'is-invalid': f.submitted && role.errors }">
+			<option value="Guerrier">Guerrier</option>
+			<option value="Alchimiste">Alchimiste</option>
+			<option value="Sorcier">Sorcier</option>
+			<option value="Espions">Espions</option>
+			<option value="Enchanteur">Enchanteur</option>
+		</select>
+		<div class="invalid-feedback" *ngIf="role.errors && f.submitted">
+			<div *ngIf="role.errors['required']">Votre classe !</div>
+		</div>
+		<button class="btn btn-primary btn-block">Modifier</button>
+	</div>
 </form>
 
 <h2 class="text-center mt-4">Vos amis!</h2>
 
 <div *ngIf="friendArray">
-  <div *ngFor="let friend of friendArray.friends" class="card my-3 mx-auto" style="max-width: 540px; background-color: #f7f5ec;">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img *ngIf="friend.role == 'Espions'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/espion.png">
-            <img *ngIf="friend.role == 'Alchimiste'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/alchimiste.png">
-            <img *ngIf="friend.role == 'Sorcier'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/sorcier.png">
-            <img *ngIf="friend.role == 'Enchanteur'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/enchanteur.png">
-            <img *ngIf="friend.role == 'Guerrier'" class="img-fluid" style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/guerrier.png">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td>Nom</td>
-                            <td>{{ friend.username }}</td>    
-                        </tr>
-                        <tr>
-                            <td>Classe</td>
-                            <td>{{ friend.role }}</td>
-                        </tr>
-                        <tr>
-                            <td>Points de vie</td>
-                            <td *ngIf="friend.role == 'Sorcier'">15</td>
-                            <td *ngIf="friend.role == 'Espions'">35</td>
-                            <td *ngIf="friend.role == 'Alchimiste'">25</td>
-                        </tr>
-                        <tr>
-                            <td>Dégâts</td>
-                            <td *ngIf="friend.role == 'Sorcier'">55</td>
-                            <td *ngIf="friend.role == 'Espions'">25</td>
-                            <td *ngIf="friend.role == 'Alchimiste'">35</td>
-                        </tr>
-                    </tbody>   
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+	<div *ngFor="let friend of friendArray.friends" class="card my-3 mx-auto"
+		style="max-width: 540px; background-color: #f7f5ec;">
+		<div class="row g-0">
+			<div class="col-md-4">
+				<img *ngIf="friend.role == 'Espions'" class="img-fluid"
+					style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/espion.png">
+				<img *ngIf="friend.role == 'Alchimiste'" class="img-fluid"
+					style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/alchimiste.png">
+				<img *ngIf="friend.role == 'Sorcier'" class="img-fluid"
+					style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/sorcier.png">
+				<img *ngIf="friend.role == 'Enchanteur'" class="img-fluid"
+					style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/enchanteur.png">
+				<img *ngIf="friend.role == 'Guerrier'" class="img-fluid"
+					style="height: 100%; width: 100%; object-fit: cover;" src="/assets/images/guerrier.png">
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<table class="table table-striped">
+						<tbody>
+							<tr>
+								<td>Nom</td>
+								<td>{{ friend.username }}</td>
+							</tr>
+							<tr>
+								<td>Classe</td>
+								<td>{{ friend.role }}</td>
+							</tr>
+							<tr>
+								<td>Points de vie</td>
+								<td *ngIf="friend.role == 'Espions'">25</td>
+								<td *ngIf="friend.role == 'Alchimiste'">35</td>
+								<td *ngIf="friend.role == 'Sorcier'">15</td>
+								<td *ngIf="friend.role == 'Enchanteur'">30</td>
+								<td *ngIf="friend.role == 'Guerrier'">50</td>
+							</tr>
+							<tr>
+								<td>Dégâts</td>
+								<td *ngIf="friend.role == 'Espions'">35</td>
+								<td *ngIf="friend.role == 'Alchimiste'">25</td>
+								<td *ngIf="friend.role == 'Sorcier'">45</td>
+								<td *ngIf="friend.role == 'Enchanteur'">30</td>
+								<td *ngIf="friend.role == 'Guerrier'">10</td>
+							</tr>						
+						</tbody>
+						<div class="container">
+							<div>
+								<button (click)="deleteFriend(friend._id)" class="btn btn-warning mt-3">Supprimer</button>
+							</div>
+						</div>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

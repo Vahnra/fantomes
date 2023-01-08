@@ -18,28 +18,43 @@
                         <tbody>
                             <tr>
                                 <td>Points de vie</td>
+                                <td *ngIf="fantome.role == 'Espions'">25</td>
+                                <td *ngIf="fantome.role == 'Alchimiste'">35</td>
                                 <td *ngIf="fantome.role == 'Sorcier'">15</td>
+                                <td *ngIf="fantome.role == 'Enchanteur'">30</td>
+                                <td *ngIf="fantome.role == 'Guerrier'">50</td>
                             </tr>
                             <tr>
                                 <td>Dégâts</td>
-                                <td *ngIf="fantome.role == 'Sorcier'">55</td>
+                                <td *ngIf="fantome.role == 'Espions'">35</td>
+                                <td *ngIf="fantome.role == 'Alchimiste'">25</td>
+                                <td *ngIf="fantome.role == 'Sorcier'">45</td>
+                                <td *ngIf="fantome.role == 'Enchanteur'">30</td>
+                                <td *ngIf="fantome.role == 'Guerrier'">10</td>
                             </tr>
                             <tr>
-                                <td>Point forts</td>
+                                <td>Compétence</td>
+                                <td *ngIf="fantome.role == 'Espions'">AHAH</td>
+                                <td *ngIf="fantome.role == 'Alchimiste'">Tu me vois plus</td>
                                 <td *ngIf="fantome.role == 'Sorcier'">Boom boom</td>
+                                <td *ngIf="fantome.role == 'Enchanteur'">Rien de spécial</td>
+                                <td *ngIf="fantome.role == 'Guerrier'">VOUS NE PASSEREZ PAS</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <a href="/login" *ngIf="currentUser.id == null" routerLink="login" class="add-friend-btn text-end">Ajouter
-                    en ami</a>
-                <button *ngIf="isFriend" (click)="update()" disabled class="add-friend-btn text-end">Déjà ami</button>
-                <button *ngIf="isFriend === false && currentUser.id !== undefined" (click)="update()"
-                    class="add-friend-btn text-end">Ajouter en ami</button>
+                <a href="/login" *ngIf="currentUser.id == null" routerLink="login" class="add-friend-btn text-end">
+                    Ajouter en ami
+                </a>
+                <button *ngIf="isFriend" (click)="addFriend()" disabled class="add-friend-btn text-end">
+                    Déjà ami
+                </button>
+                <button *ngIf="isFriend === false && currentUser.id !== undefined" (click)="addFriend()" class="add-friend-btn text-end">
+                    Ajouter en ami
+                </button>
             </figcaption>
             <span class="after"></span>
         </div>
     </div>
 
 </div>
-

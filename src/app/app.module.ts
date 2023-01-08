@@ -8,8 +8,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardUserComponent } from './board-user/board-user.component';
 import { FormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { FantomeModule } from './fantome/fantome.module';
@@ -22,8 +20,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     RegisterComponent,
     ProfileComponent,
     BoardAdminComponent,
-    BoardModeratorComponent,
-    BoardUserComponent,
     PageNotFoundComponent
   ],
   imports: [

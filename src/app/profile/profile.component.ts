@@ -16,13 +16,11 @@ export class ProfileComponent implements OnInit {
   role: String | undefined;
   form: any = {
     username: null,
-    role: null,
+    id: null,
   };
   friendArray: any = '';
 
-  constructor(private storageService: StorageService, private fantomesService: FantomesService) {
-
-  }
+  constructor(private storageService: StorageService, private fantomesService: FantomesService) { }
 
   ngOnInit(): void {
     this.currentUser = this.storageService.getUser();
@@ -31,8 +29,10 @@ export class ProfileComponent implements OnInit {
       this.friendArray = fantome;
     });
     this.form.role = this.currentUser.role;
+    this.form.username = this.currentUser.username;
   }
 
+  // Update user
   update(): void {
     this.role = '';
 
@@ -46,7 +46,11 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  deleteFriend():void {
+  // Delete friend
+  deleteFriend(friendId: string):void {
+    this.form = {
+      id: friendId
+    };
     this.fantomesService.deleteFriend(this.currentUser.id, this.form)
       .subscribe({
         next: (res) => {
@@ -55,6 +59,8 @@ export class ProfileComponent implements OnInit {
         },
         error: (e) => console.error(e),
       });
+    console.log(friendId);
+    
   }
 }
 

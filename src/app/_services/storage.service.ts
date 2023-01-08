@@ -12,11 +12,13 @@ export class StorageService {
     window.sessionStorage.clear();
   }
 
+  // Save user in local storage
   public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
+  // Get user from local storage
   public getUser(): any {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
@@ -26,6 +28,7 @@ export class StorageService {
     return {};
   }
 
+  // To know if user is logged in
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem(USER_KEY);
     if (user) {
