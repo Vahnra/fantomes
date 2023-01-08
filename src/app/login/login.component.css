@@ -9,8 +9,8 @@
 }
 
 .main-screen {
-    width: 700px;
-    margin-left: -350px;
+    width: 730px;
+    margin-left: -380px;
     background-image: url(https://img.freepik.com/premium-vector/cartoon-ghost-doodle-vector-isolated-white-background_6997-3509.jpg);
     border-radius: 5px;
     z-index: 11;
@@ -54,7 +54,7 @@
 
 /* Tabs */
 .tabs {
-    width: 340px;
+    width: 360px;
     margin-top: 25px;
 }
 
@@ -67,7 +67,7 @@ ul.tabs {
 
 ul.tabs li {
     display: inline-block;
-    width: 170px;
+    width: 180px;
     padding: 15px;
     text-align: center;
     text-transform: uppercase;
@@ -90,7 +90,7 @@ ul.tabs li.current {
 }
 
 .field {
-    width: 340px;
+    width: 360px;
     margin-top: 15px;
     padding: 12px 15px 12px 30px;
     font-size: 14px;
