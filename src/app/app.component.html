@@ -1,30 +1,35 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark ">
+<div id="app" class="bg-dark">
 
-    <div class="col-4"></div>
+  <div class="container">
 
-    <a href="/" routerLink="fantomes" class="navbar-brand col-4 text-center">Fantomes</a>
+    <nav class="navbar row navbar-expand navbar-dark bg-dark">
 
-    <ul class="navbar-nav col-4" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Rejoindre les autres</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Se connecter</a>
-      </li>
-    </ul>
+      <div class="col-4"></div>
 
-    <ul class="navbar-nav col-4" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">Votre antre</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Se déconnecter</a>
-      </li>
-    </ul>
-  </nav>
+      <a href="/" routerLink="fantomes" class="navbar-brand col-4 text-center">Fantomes</a>
+
+      <ul class="navbar-nav col-4" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a href="/register" class="nav-link" routerLink="register">Rejoindre les autres</a>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="nav-link" routerLink="login">Se connecter</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav col-4" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a href="/profile" class="nav-link" routerLink="profile">Votre antre</a>
+        </li>
+        <li class="nav-item">
+          <a href class="nav-link" (click)="logout()">Se déconnecter</a>
+        </li>
+      </ul>
+      
+    </nav>
+
+  </div>
 
 </div>
-
 
 <router-outlet></router-outlet>

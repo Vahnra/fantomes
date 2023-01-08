@@ -14,6 +14,7 @@ import { BoardUserComponent } from './board-user/board-user.component';
 import { FormsModule } from '@angular/forms';
 import { httpInterceptorProviders } from './_helpers/http.interceptor';
 import { FantomeModule } from './fantome/fantome.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FantomeModule } from './fantome/fantome.module';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

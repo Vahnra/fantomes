@@ -1,32 +1,34 @@
 <h2 class="text-center m-5">Liste des fantomes</h2>
 
+<div class="container">
+    
+    <div class="row">
 
-<div class="row">
+        <div (click)="goToFantome(fantome)" *ngFor="let fantome of fantomes$ | async" class="mx-2 mx-auto fantome-card"
+            style="width: 18rem;">
 
-    <div (click)="goToFantome(fantome)" *ngFor="let fantome of fantomes$ | async" class="mx-2 mx-auto fantome-card"
-        style="width: 18rem;">
-
-        <div class="our-team">
-            <div class="picture">
-                <img *ngIf="fantome.role == 'Espions'" class="img-fluid" src="/assets/images/espion.png">
-                <img *ngIf="fantome.role == 'Alchimiste'" class="img-fluid" src="/assets/images/alchimiste.png">
-                <img *ngIf="fantome.role == 'Sorcier'" class="img-fluid" src="/assets/images/sorcier.png">
-                <img *ngIf="fantome.role == 'Enchanteur'" class="img-fluid" src="/assets/images/enchanteur.png">
-                <img *ngIf="fantome.role == 'Guerrier'" class="img-fluid" src="/assets/images/guerrier.png">
+            <div class="our-team">
+                <div class="picture">
+                    <img *ngIf="fantome.role == 'Espions'" class="img-fluid" src="/assets/images/espion.png">
+                    <img *ngIf="fantome.role == 'Alchimiste'" class="img-fluid" src="/assets/images/alchimiste.png">
+                    <img *ngIf="fantome.role == 'Sorcier'" class="img-fluid" src="/assets/images/sorcier.png">
+                    <img *ngIf="fantome.role == 'Enchanteur'" class="img-fluid" src="/assets/images/enchanteur.png">
+                    <img *ngIf="fantome.role == 'Guerrier'" class="img-fluid" src="/assets/images/guerrier.png">
+                </div>
+                <div class="team-content">
+                    <h3 class="name">{{ fantome.username }}</h3>
+                    <h4 class="title">{{ fantome.role }}</h4>
+                </div>
+                <ul class="citation">
+                    <li *ngIf="fantome.role == 'Sorcier'" class="text-white mb-1">Parfaitement équilibré.</li>
+                    <li *ngIf="fantome.role == 'Alchimiste'" class="text-white mb-1">Ça n'a aucun sens.</li>
+                    <li *ngIf="fantome.role == 'Guerrier'" class="text-white mb-1">Cela ne semble pas juste.</li>
+                    <li *ngIf="fantome.role == 'Espions'" class="text-white mb-1">A dans une minute.</li>
+                    <li *ngIf="fantome.role == 'Enchanteur'" class="text-white mb-1">J'aurai juré que je l'avais mis là
+                        dedans.</li>
+                </ul>
             </div>
-            <div class="team-content">
-                <h3 class="name">{{ fantome.username }}</h3>
-                <h4 class="title">{{ fantome.role }}</h4>
-            </div>
-            <ul class="citation">
-                <li *ngIf="fantome.role == 'Sorcier'" class="text-white mb-1">Parfaitement équilibré.</li>
-                <li *ngIf="fantome.role == 'Alchimiste'" class="text-white mb-1">Ça n'a aucun sens.</li>
-                <li *ngIf="fantome.role == 'Guerrier'" class="text-white mb-1">Cela ne semble pas juste.</li>
-                <li *ngIf="fantome.role == 'Espions'" class="text-white mb-1">A dans une minute.</li>
-                <li *ngIf="fantome.role == 'Enchanteur'" class="text-white mb-1">J'aurai juré que je l'avais mis là dedans.</li>
-            </ul>
+
         </div>
-
     </div>
-
 </div>

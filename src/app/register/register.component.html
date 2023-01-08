@@ -1,110 +1,71 @@
-<div class="col-md-3 mt-5 mx-auto">
-    <div class="card border-0 card-container">
-      <img
-        id="profile-img"
-        src="assets/images/register.png"
-        class="profile-img-card"
-      />
-      <form
-        *ngIf="!isSuccessful"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-        novalidate
-      >
-        <div class="form-group mt-1">
-          <label class="my-2" for="username">Votre nom</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            [(ngModel)]="form.username"
-            required
-            minlength="3"
-            maxlength="20"
-            #username="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
-          />
-          <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
-            <div *ngIf="username.errors['required']">Vous devez avoir un nom</div>
-            <div *ngIf="username.errors['minlength']">
-              Votre nom est trop court !
+<div class="main-screen position">
+  <div class="form position">
+    <div class="form-inner">
+      <!-- Tabs-->
+      <div class="tabs">
+        <ul class="tabs">
+          <li class="new">
+            <a routerLink="/login" class="text-decoration-none text-dark">Je suis membre</a>
+          </li>
+          <li class="current">
+            <a routerLink="/register" class="text-decoration-none text-dark">Je suis nouveau</a>
+          </li>
+        </ul>
+        <!--Register Form -->
+        <div class="form-content current" id="member">
+          <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate
+            id="sign-in">
+            <input type="text" class="field" name="username" [(ngModel)]="form.username" required minlength="3"
+              maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+              placeholder="Nom">
+            <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+              <div *ngIf="username.errors['required']">Vous devez avoir un nom</div>
+              <div *ngIf="username.errors['minlength']">
+                Votre nom est trop court !
+              </div>
+              <div *ngIf="username.errors['maxlength']">
+                Votre nom est trop long !
+              </div>
             </div>
-            <div *ngIf="username.errors['maxlength']">
-              Votre nom est trop long !
+            <select class="field" name="role" [(ngModel)]="form.role" required #role="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && role.errors }" class="field" style="background-color: white;">
+              <option disabled>Classe</option>
+              <option value="Guerrier">Guerrier</option>
+              <option value="Alchimiste">Alchimiste</option>
+              <option value="Sorcier">Sorcier</option>
+              <option value="Espions">Espions</option>
+              <option value="Enchanteur">Enchanteur</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="role.errors && f.submitted">
+              <div *ngIf="role.errors['required']">Vous n'avez pas de classe ?</div>
             </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="my-2" for="role">Votre classe</label>
-          <select
-            class="form-control"
-            name="role"
-            [(ngModel)]="form.role"
-            required
-            #role="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && role.errors }"
-          >
-            <option value="Guerrier">Guerrier</option>
-            <option value="Alchimiste">Alchimiste</option>
-            <option value="Sorcier">Sorcier</option>
-            <option value="Espions">Espions</option>
-            <option value="Enchanteur">Enchanteur</option>
-          </select>
-          <div class="invalid-feedback" *ngIf="role.errors && f.submitted">
-            <div *ngIf="role.errors['required']">Vous n'avez pas de classe ?</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="my-2" for="email">E-mail</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            [(ngModel)]="form.email"
-            required
-            email
-            #email="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
-          />
-          <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
-            <div *ngIf="email.errors['required']">Il nous faut votre e-mail</div>
-            <div *ngIf="email.errors['email']">
-              L'e-mail n'est pas valide
+            <input type="email" name="email" [(ngModel)]="form.email" required email #email="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && email.errors }" class="field" placeholder="E-mail">
+            <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+              <div *ngIf="email.errors['required']">Il nous faut votre e-mail</div>
+              <div *ngIf="email.errors['email']">
+                L'e-mail n'est pas valide
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="my-2" for="password">Le mot de passe</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            [(ngModel)]="form.password"
-            required
-            minlength="6"
-            #password="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
-          />
-          <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
-            <div *ngIf="password.errors['required']">Password is required</div>
-            <div *ngIf="password.errors['minlength']">
-              Le mots de passe doit avoir au moins 6 caractères
+            <input type="password" name="password" [(ngModel)]="form.password" required minlength="6"
+              #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" class="field"
+              placeholder="Mot de passe">
+            <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+              <div *ngIf="password.errors['required']">Le mot de passe!</div>
+              <div *ngIf="password.errors['minlength']">
+                Le mots de passe doit avoir au moins 6 caractères
+              </div>
             </div>
-          </div>
+            <button id="submit" name="sign-in-button" class="flat-button signin mt-3">C'est parti !</button>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              {{ errorMessage }}
+            </div>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              Votre inscription s'est déroulé avec succès!
+            </div>
+          </form>
         </div>
-        <div class="form-group">
-          <button class="btn btn-primary btn-block my-3">C'est parti !</button>
-        </div>
-  
-        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-          {{ errorMessage }}
-        </div>
-      </form>
-  
-      <div class="alert alert-success" *ngIf="isSuccessful">
-        Votre inscription s'est déroulé avec succès!
       </div>
     </div>
   </div>
-  
+</div>
