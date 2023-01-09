@@ -1,14 +1,14 @@
-<div id="app" class="bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="col-4 d-none d-sm-none d-md-none d-lg-block"></div>
 
-  <div class="container">
-
-    <nav class="navbar row navbar-expand navbar-dark bg-dark">
-
-      <div class="col-4"></div>
-
-      <a href="/" routerLink="fantomes" class="navbar-brand col-4 text-center">Fantomes</a>
-
-      <ul class="navbar-nav col-4" *ngIf="!isLoggedIn">
+    <a href="/" routerLink="fantomes" class="navbar-brand col-4 text-center">Fantomes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav " *ngIf="!isLoggedIn">
         <li class="nav-item">
           <a href="/register" class="nav-link" routerLink="register">Rejoignez-nous</a>
         </li>
@@ -17,7 +17,7 @@
         </li>
       </ul>
 
-      <ul class="navbar-nav col-4" *ngIf="isLoggedIn">
+      <ul class="navbar-nav " *ngIf="isLoggedIn">
         <li class="nav-item">
           <a href="/profile" class="nav-link" routerLink="profile">Chez vous</a>
         </li>
@@ -25,11 +25,8 @@
           <a href class="nav-link" (click)="logout()">Se déconnecter</a>
         </li>
       </ul>
-      
-    </nav>
-
+    </div>
   </div>
-
-</div>
+</nav>
 
 <router-outlet></router-outlet>
